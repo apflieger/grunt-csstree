@@ -6,19 +6,23 @@
  * Licensed under the MIT license.
  */
 
-'use strict';
+ 'use strict';
 
-module.exports = function(grunt) {
+ module.exports = function(grunt) {
+
+  var Tree = require('./lib/tree');
 
   grunt.registerMultiTask('csstree', 'Css files dependecies management.', function() {
-    grunt.log.writeln('target : ' + this.target);
-    grunt.log.writeln('data : ' + this.data);
+    var options = this.options();
+
+    var treeRoot = options.root;
+    grunt.log.writeln('Building tree ' + treeRoot + '...');
+
+    var tree = new Tree(treeRoot);
 
     grunt.log.writeln('files : ');
- 
-    var treeRoot = this.data;
-    grunt.file.recurse(treeRoot, function(filename){
-      grunt.log.writeln('\t' + filename);
+    grunt.file.recurse(treeRoot, function(abspath, rootdir, subdir, filename){
+      grunt.log.writeln('\t' + filename + '\t' + subdir + '\t' + tree.depth(subdir));
     });
   });
 

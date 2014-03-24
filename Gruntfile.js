@@ -6,30 +6,31 @@
  * Licensed under the MIT license.
  */
 
-'use strict';
+ 'use strict';
 
-module.exports = function(grunt) {
+ module.exports = function(grunt) {
 
   grunt.initConfig({
     jshint: {
       all: [
-        'Gruntfile.js',
-        'tasks/*.js'
+      'Gruntfile.js',
+      'tasks/*.js'
       ],
       options: {
         jshintrc: '.jshintrc',
       },
     },
 
-    csstree: {
-      build: 'samples/singlefile'
+    nodeunit: {
+      all: ['test/**/*_test.js']
     }
   });
 
   grunt.loadTasks('tasks');
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
-  grunt.registerTask('default', ['jshint', 'csstree']);
+  grunt.registerTask('default', ['jshint', 'nodeunit']);
 
 };
