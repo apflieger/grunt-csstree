@@ -14,17 +14,9 @@
 	test.ifError(value)
 */
 
-var Tree = require('../tasks/lib/Tree');
+var Csstree = require('../tasks/Csstree');
 
-exports.testDepth_root = function(test){
-	var littleTree = new Tree('littleTree');
-	test.equal(littleTree.depth(''), 0);
-	test.equal(littleTree.depth(), 0);
-	test.done();
-};
-
-exports.testDepth_1 = function(test){
-	var littleTree = new Tree('littleTree');
-	test.equal(littleTree.depth('home'), 1);
+exports.testLittleTree = function(test) {
+	new Csstree('./test/littleTree');
 	test.done();
 };

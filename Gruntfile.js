@@ -14,7 +14,8 @@
     jshint: {
       all: [
       'Gruntfile.js',
-      'tasks/*.js'
+      'tasks/**/*.js',
+      'test/**/*.js'
       ],
       options: {
         jshintrc: '.jshintrc',
@@ -25,8 +26,6 @@
       all: ['test/**/*_test.js']
     }
   });
-
-  grunt.loadTasks('tasks');
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');

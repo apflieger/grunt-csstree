@@ -31,7 +31,8 @@
     "grunt-contrib-nodeunit": "^0.3.3"
   },
   "dependencies": {
-    "string": "^1.8.0"
+    "string": "^1.8.0",
+    "file": "^0.2.2"
   },
   "peerDependencies": {
     "grunt": "~0.4.2"

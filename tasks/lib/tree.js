@@ -10,10 +10,10 @@
 
 var S = require('string');
 
-module.exports = function(root){
+module.exports = function(name, childs, leaves, depth) {
 	return {
-		depth: function(dir){
-			return dir ? S(dir).count('/') : 0;
+		depth: function() {
+			return depth;
 		}
-	}
-}
+	};
+};
