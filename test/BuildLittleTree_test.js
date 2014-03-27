@@ -16,10 +16,19 @@
 
 var Csstree = require('../tasks/Csstree');
 
-exports.testLittleTree = function(test) {
-	var csstree = new Csstree('./test/littleTree');
+exports.testRootNotDirectory = function(test) {
+	var csstree = new Csstree();
 
-	var tree = csstree.build();
+	test.throws(function() {
+		csstree.build('./Gruntfile.js');
+	});
+	test.done();
+};
+
+exports.testLittleTree = function(test) {
+	var csstree = new Csstree();
+
+	var tree = csstree.build('./test/littleTree');
 
 	test.equal(tree.depth, 0);
 	test.equal(tree.name, 'littleTree');

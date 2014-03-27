@@ -11,7 +11,7 @@ var Tree = require('./lib/Tree');
 var fs = require("fs");
 var path = require('path');
 
-module.exports = function(treeRoot) {
+module.exports = function() {
 
   var buildTree = function(dir, depth) {
     var filenames = fs.readdirSync(dir);
@@ -41,7 +41,7 @@ module.exports = function(treeRoot) {
   };
 
   return {
-    build: function() {
+    build: function(treeRoot) {
       var stat = fs.statSync(treeRoot);
       if (stat.isDirectory()) {
         return buildTree(treeRoot, 0);
