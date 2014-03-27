@@ -9,16 +9,46 @@
 'use strict';
 var Tree = require('./lib/Tree');
 var file = require("file");
+var fs = require("fs");
+var path = require('path');
 
 module.exports = function(treeRoot) {
-  var absTreeRoot = file.path.abspath(treeRoot);
-  console.log(absTreeRoot);
 
-  file.walkSync(absTreeRoot, function(dir, dirs, files) {
-    console.log(dir);
-    console.log(dirs);
-    console.log(files);
-  });
+  var buildTree = function(dir, depth) {
+    var filenames = fs.readdirSync(dir);
 
-  console.log('fin');
+    var coll = filenames.reduce(function(acc, name) {
+      var abspath = path.join(dir, name);
+
+      if (fs.statSync(abspath).isDirectory()) {
+        acc.childs.push(abspath);
+      } else {
+        acc.leaves.push(name);
+      }
+
+      return acc;
+    }, {
+      childs: [],
+      leaves: []
+    });
+
+    var childs = [];
+
+    coll.childs.forEach(function(child) {
+      childs.push(buildTree(child, depth + 1));
+    });
+
+    return new Tree(path.basename(dir), childs, coll.leaves, depth);
+  };
+
+  return {
+    build: function() {
+      var stat = fs.statSync(treeRoot);
+      if (stat.isDirectory()) {
+        return buildTree(treeRoot, 0);
+      } else {
+        throw new Error("path: " + treeRoot + " is not a directory");
+      }
+    }
+  };
 };

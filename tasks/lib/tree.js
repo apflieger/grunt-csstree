@@ -12,8 +12,9 @@ var S = require('string');
 
 module.exports = function(name, childs, leaves, depth) {
 	return {
-		depth: function() {
-			return depth;
-		}
+		name: name,
+		childs: childs,
+		leaves: leaves,
+		depth: depth
 	};
 };

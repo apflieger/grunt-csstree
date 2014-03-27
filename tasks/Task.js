@@ -18,7 +18,7 @@
     var treeRoot = options.root;
     grunt.log.writeln('Building tree ' + treeRoot + '...');
 
-    new Csstree(treeRoot);
+    var tree = new Csstree(treeRoot);
   });
 
 };
