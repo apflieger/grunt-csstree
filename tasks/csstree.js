@@ -8,7 +8,6 @@
 
 'use strict';
 var Tree = require('./lib/Tree');
-var file = require("file");
 var fs = require("fs");
 var path = require('path');
 

@@ -8,8 +8,6 @@
 
 'use strict';
 
-var S = require('string');
-
 module.exports = function(name, childs, leaves, depth) {
 	return {
 		name: name,
