@@ -22,7 +22,9 @@ module.exports = function() {
       if (fs.statSync(abspath).isDirectory()) {
         acc.childs.push(abspath);
       } else {
-        acc.leaves.push(name);
+        if (name !== 'branch.css') {
+          acc.leaves.push(name);
+        }
       }
 
       return acc;
@@ -37,7 +39,26 @@ module.exports = function() {
       childs.push(buildTree(child, depth + 1));
     });
 
-    return new Tree(path.basename(dir), childs, coll.leaves, depth);
+    return new Tree(path.basename(dir), dir, childs, coll.leaves, depth);
+  };
+
+  var generate = function(tree, parent) {
+    var content = '';
+    if (parent) {
+      content += '@import "../branch.css";\n';
+    }
+
+    tree.leaves.forEach(function(leaf) {
+      content += '@import "' + leaf + '";\n';
+    });
+
+    fs.writeFileSync(tree.path + '/branch.css', content, {
+      encoding: 'utf-8'
+    });
+
+    tree.childs.forEach(function(child) {
+      generate(child, tree);
+    });
   };
 
   return {
@@ -48,6 +69,9 @@ module.exports = function() {
       } else {
         throw new Error("path: " + treeRoot + " is not a directory");
       }
+    },
+    generate: function(tree) {
+      generate(tree, null);
     }
   };
 };

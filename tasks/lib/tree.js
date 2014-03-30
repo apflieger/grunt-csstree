@@ -8,9 +8,10 @@
 
 'use strict';
 
-module.exports = function(name, childs, leaves, depth) {
+module.exports = function(name, path, childs, leaves, depth) {
 	return {
 		name: name,
+		path: path,
 		childs: childs,
 		leaves: leaves,
 		depth: depth
