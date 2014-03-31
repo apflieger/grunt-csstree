@@ -8,7 +8,7 @@
 
 'use strict';
 
-var Csstree = require('./Csstree');
+var Csstree = require('./csstree');
 
 module.exports = function(grunt) {
 
@@ -18,7 +18,10 @@ module.exports = function(grunt) {
 		var treeRoot = options.root;
 		grunt.log.writeln('Building tree ' + treeRoot + '...');
 
-		var tree = new Csstree(treeRoot);
+		var csstree = new Csstree();
+		var tree = csstree.build(treeRoot);
+
+		csstree.generate(tree);
 	});
 
 };
