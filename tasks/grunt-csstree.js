@@ -13,15 +13,14 @@ var Csstree = require('./csstree');
 module.exports = function(grunt) {
 
 	grunt.registerMultiTask('csstree', 'Css files dependecies management.', function() {
-		var options = this.options();
-
-		var treeRoot = options.root;
-		grunt.log.writeln('Building tree ' + treeRoot + '...');
+		var treeRoot = this.data.src;
+		grunt.log.write('Building tree ' + treeRoot + '...');
 
 		var csstree = new Csstree();
 		var tree = csstree.build(treeRoot);
 
-		csstree.generate(tree);
+		csstree.generate(tree, this.options());
+		grunt.log.ok();
 	});
 
 };
