@@ -47,15 +47,15 @@ module.exports = function() {
 
     var content = '';
     if (parent) {
-      content += '@import "../' + branchFile + '";\n';
+      content += options.importFormat('../' + branchFile) + '\n';
     }
 
     tree.leaves.forEach(function(leaf) {
-      content += '@import "' + leaf + '";\n';
+      content += options.importFormat(leaf) + '\n';
     });
 
     fs.writeFileSync(tree.path + '/' + branchFile, content, {
-      encoding: 'utf-8'
+      encoding: options.encoding
     });
 
     tree.childs.forEach(function(child) {
@@ -75,12 +75,30 @@ module.exports = function() {
     generate: function(tree, options) {
       if (!options) {
         options = {
-          extension: '.css'
+          extension: '.css',
+          importFormat: null, // to be initialized just bellow
+          encoding: 'utf-8'
         };
       }
 
       if (!options.extension) {
         options.extension = '.css';
+      }
+
+      if (!options.importFormat) {
+        if (options.extension === '.css') {
+          options.importFormat = function(path) {
+            return '@import "' + path + '";';
+          };
+        } else if (options.extension === '.less') {
+          options.importFormat = function(path) {
+            return '@import (less) "' + path + '";';
+          };
+        }
+      }
+
+      if (!options.encoding) {
+        options.encoding = 'utf-8';
       }
 
       generate(tree, null, options);

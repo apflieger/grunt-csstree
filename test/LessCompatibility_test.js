@@ -24,8 +24,6 @@ exports.testRootNotDirectory = function(test) {
 			encoding: 'utf-8'
 		});
 	};
-	console.log();
-
 
 	// crawling and generating littleTree
 	var csstree = new Csstree();
