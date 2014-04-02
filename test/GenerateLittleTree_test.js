@@ -30,15 +30,15 @@ exports.testRootNotDirectory = function(test) {
 	csstree.generate(tree);
 
 	// testing the root of the tree
-	var contentRoot = readFile('branch.css');
+	var contentRoot = readFile('branch.gen.css');
 
-	test.ok(contentRoot.indexOf('@import "../branch.css";') === -1);
+	test.ok(contentRoot.indexOf('@import "../branch.gen.css";') === -1);
 	test.ok(contentRoot.indexOf('@import "base.css";') > -1);
 
 	// testing the faq branch
-	var contentFaq = readFile('faq/branch.css');
+	var contentFaq = readFile('faq/branch.gen.css');
 
-	test.ok(contentFaq.indexOf('@import "../branch.css";') > -1);
+	test.ok(contentFaq.indexOf('@import "../branch.gen.css";') > -1);
 	test.ok(contentFaq.indexOf('@import "faq.css";') > -1);
 	
 	test.done();

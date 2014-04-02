@@ -22,7 +22,7 @@ module.exports = function() {
       if (fs.statSync(abspath).isDirectory()) {
         acc.childs.push(abspath);
       } else {
-        if (name.indexOf('branch') === -1) {
+        if (name.indexOf('.gen') === -1) {
           acc.leaves.push(name);
         }
       }
@@ -43,7 +43,7 @@ module.exports = function() {
   };
 
   var generate = function(tree, parent, options) {
-    var branchFile = 'branch' + options.extension;
+    var branchFile = 'branch.gen' + options.extension;
 
     var content = '';
     if (parent) {

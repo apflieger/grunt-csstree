@@ -33,7 +33,7 @@ exports.testRootNotDirectory = function(test) {
 		extension: '.less'
 	});
 
-	var content = readFile('uglyPage/branch.less');
+	var content = readFile('uglyPage/branch.gen.less');
 
 	var parser = new(less.Parser)({
 		paths: ['./test/lessTree/uglyPage'] // Specify search paths for @import directives

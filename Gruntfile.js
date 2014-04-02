@@ -11,7 +11,7 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
-    clean: ['test/**/branch.*'],
+    clean: ['test/**/*.gen.*'],
     
     jshint: {
       all: [
