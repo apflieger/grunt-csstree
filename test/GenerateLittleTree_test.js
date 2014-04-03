@@ -39,7 +39,7 @@ exports.testRootNotDirectory = function(test) {
 	};
 
 	// crawling and generating littleTree
-	var tree = csstree.build('./test/littleTree');
+	var tree = csstree.model('./test/littleTree');
 	csstree.generate(tree);
 
 	// testing the root of the tree

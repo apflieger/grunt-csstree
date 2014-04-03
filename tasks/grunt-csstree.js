@@ -15,7 +15,7 @@ module.exports = function(grunt) {
 		var treeRoot = this.data.src;
 		grunt.log.write('Building tree ' + treeRoot + '...');
 
-		var tree = csstree.build(treeRoot);
+		var tree = csstree.model(treeRoot);
 
 		csstree.generate(tree, this.options());
 		grunt.log.ok();

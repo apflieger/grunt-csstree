@@ -28,7 +28,7 @@ exports.testRootNotDirectory = function(test) {
 	};
 
 	// crawling and generating littleTree
-	csstree.generate(csstree.build('./test/lessTree'), {
+	csstree.generate(csstree.model('./test/lessTree'), {
 		extension: '.less'
 	});
 

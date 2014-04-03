@@ -19,13 +19,13 @@ var csstree = require('../lib/csstree')();
 
 exports.testRootNotDirectory = function(test) {
 	test.throws(function() {
-		csstree.build('./Gruntfile.js');
+		csstree.model('./Gruntfile.js');
 	});
 	test.done();
 };
 
 exports.testLittleTree = function(test) {
-	var tree = csstree.build('./test/littleTree');
+	var tree = csstree.model('./test/littleTree');
 
 	test.equal(tree.depth, 0);
 	test.equal(tree.name, 'littleTree');
