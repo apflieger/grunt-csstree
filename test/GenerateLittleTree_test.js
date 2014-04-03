@@ -27,6 +27,7 @@ exports.testRootNotDirectory = function(test) {
 			encoding: 'utf-8'
 		});
 
+		// We are linting the generated css (allowing the @import ...)
 		var result = csslint.verify(content, {
 			import: false
 		});

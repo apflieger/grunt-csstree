@@ -18,6 +18,7 @@
 var csstree = require('../lib/csstree')();
 
 exports.testRootNotDirectory = function(test) {
+	// A tree can be build only on a directory, calling model() on a file should trow an error
 	test.throws(function() {
 		csstree.model('./Gruntfile.js');
 	});
