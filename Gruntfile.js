@@ -12,7 +12,7 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     clean: ['test/**/*.gen.*'],
-    
+
     jshint: {
       all: [
         'Gruntfile.js',
@@ -26,13 +26,21 @@ module.exports = function(grunt) {
 
     nodeunit: {
       all: ['test/**/*_test.js']
+    },
+
+    csslint: {
+      options: {
+        import: false
+      },
+      src: ['test/**/*.css']
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-csslint');
 
-  grunt.registerTask('default', ['clean','jshint', 'nodeunit']);
+  grunt.registerTask('default', ['clean', 'jshint', 'nodeunit']);
 
 };

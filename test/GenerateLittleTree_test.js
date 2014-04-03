@@ -16,12 +16,25 @@
 
 var Csstree = require('../tasks/Csstree');
 var fs = require('fs');
+var csslint = require('csslint').CSSLint;
 
 exports.testRootNotDirectory = function(test) {
+	test.expect(4);
+
 	var readFile = function(path) {
-		return fs.readFileSync('./test/littleTree/' + path, {
+		var content = fs.readFileSync(path, {
 			encoding: 'utf-8'
 		});
+
+		var result = csslint.verify(content, {
+			import: false
+		});
+
+		if (result.messages.length) {
+			throw new Error('csslint error on ' + path + ', run grunt csslint for more informations');
+		}
+
+		return content;
 	};
 
 	// crawling and generating littleTree
@@ -30,16 +43,16 @@ exports.testRootNotDirectory = function(test) {
 	csstree.generate(tree);
 
 	// testing the root of the tree
-	var contentRoot = readFile('branch.gen.css');
+	var contentRoot = readFile('./test/littleTree/branch.gen.css');
 
 	test.ok(contentRoot.indexOf('@import "../branch.gen.css";') === -1);
 	test.ok(contentRoot.indexOf('@import "base.css";') > -1);
 
 	// testing the faq branch
-	var contentFaq = readFile('faq/branch.gen.css');
+	var contentFaq = readFile('./test/littleTree/faq/branch.gen.css');
 
 	test.ok(contentFaq.indexOf('@import "../branch.gen.css";') > -1);
 	test.ok(contentFaq.indexOf('@import "faq.css";') > -1);
-	
+
 	test.done();
 };
