@@ -13,8 +13,9 @@
 	test.doesNotThrow(block, [error], [message])
 	test.ifError(value)
 */
+'use strict';
 
-var Csstree = require('../tasks/Csstree');
+var Csstree = require('../tasks/lib/csstree');
 
 exports.testRootNotDirectory = function(test) {
 	var csstree = new Csstree();

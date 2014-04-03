@@ -8,7 +8,7 @@
 
 'use strict';
 
-var Csstree = require('./csstree');
+var Csstree = require('lib/csstree');
 
 module.exports = function(grunt) {
 

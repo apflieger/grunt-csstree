@@ -13,8 +13,9 @@
 	test.doesNotThrow(block, [error], [message])
 	test.ifError(value)
 */
+'use strict';
 
-var Csstree = require('../tasks/Csstree');
+var Csstree = require('../tasks/lib/csstree');
 var fs = require('fs');
 var csslint = require('csslint').CSSLint;
 

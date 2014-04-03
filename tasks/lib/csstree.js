@@ -7,8 +7,9 @@
  */
 
 'use strict';
-var Tree = require('./lib/Tree');
-var fs = require("fs");
+
+var Tree = require('./tree');
+var fs = require('fs');
 var path = require('path');
 
 module.exports = function() {
