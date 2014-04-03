@@ -15,7 +15,7 @@
 */
 'use strict';
 
-var csstree = require('../tasks/lib/csstree')();
+var csstree = require('../lib/csstree')();
 var fs = require('fs');
 var less = require('less');
 

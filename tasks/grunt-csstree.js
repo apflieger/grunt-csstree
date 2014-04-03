@@ -8,7 +8,7 @@
 
 'use strict';
 
-var csstree = require('lib/csstree')();
+var csstree = require('../lib/csstree')();
 
 module.exports = function(grunt) {
 	grunt.registerMultiTask('csstree', 'Css files dependecies management.', function() {
