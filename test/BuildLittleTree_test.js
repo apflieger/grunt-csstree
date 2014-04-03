@@ -15,11 +15,9 @@
 */
 'use strict';
 
-var Csstree = require('../tasks/lib/csstree');
+var csstree = require('../tasks/lib/csstree')();
 
 exports.testRootNotDirectory = function(test) {
-	var csstree = new Csstree();
-
 	test.throws(function() {
 		csstree.build('./Gruntfile.js');
 	});
@@ -27,8 +25,6 @@ exports.testRootNotDirectory = function(test) {
 };
 
 exports.testLittleTree = function(test) {
-	var csstree = new Csstree();
-
 	var tree = csstree.build('./test/littleTree');
 
 	test.equal(tree.depth, 0);

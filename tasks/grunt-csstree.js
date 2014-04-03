@@ -8,15 +8,13 @@
 
 'use strict';
 
-var Csstree = require('lib/csstree');
+var csstree = require('lib/csstree')();
 
 module.exports = function(grunt) {
-
 	grunt.registerMultiTask('csstree', 'Css files dependecies management.', function() {
 		var treeRoot = this.data.src;
 		grunt.log.write('Building tree ' + treeRoot + '...');
 
-		var csstree = new Csstree();
 		var tree = csstree.build(treeRoot);
 
 		csstree.generate(tree, this.options());

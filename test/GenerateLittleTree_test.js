@@ -15,7 +15,7 @@
 */
 'use strict';
 
-var Csstree = require('../tasks/lib/csstree');
+var csstree = require('../tasks/lib/csstree')();
 var fs = require('fs');
 var csslint = require('csslint').CSSLint;
 
@@ -39,7 +39,6 @@ exports.testRootNotDirectory = function(test) {
 	};
 
 	// crawling and generating littleTree
-	var csstree = new Csstree();
 	var tree = csstree.build('./test/littleTree');
 	csstree.generate(tree);
 

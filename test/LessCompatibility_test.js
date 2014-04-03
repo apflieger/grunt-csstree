@@ -15,11 +15,12 @@
 */
 'use strict';
 
-var Csstree = require('../tasks/lib/csstree');
+var csstree = require('../tasks/lib/csstree')();
 var fs = require('fs');
 var less = require('less');
 
 exports.testRootNotDirectory = function(test) {
+
 	var readFile = function(path) {
 		return fs.readFileSync('./test/lessTree/' + path, {
 			encoding: 'utf-8'
@@ -27,7 +28,6 @@ exports.testRootNotDirectory = function(test) {
 	};
 
 	// crawling and generating littleTree
-	var csstree = new Csstree();
 	csstree.generate(csstree.build('./test/lessTree'), {
 		extension: '.less'
 	});
@@ -50,6 +50,4 @@ exports.testRootNotDirectory = function(test) {
 		test.ok(css.indexOf('color: black;') > -1);
 		test.done();
 	});
-
-
 };
