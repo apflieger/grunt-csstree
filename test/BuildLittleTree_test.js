@@ -27,21 +27,18 @@ exports.testRootNotDirectory = function(test) {
 exports.testLittleTree = function(test) {
 	var tree = csstree.model('./test/littleTree');
 
-	test.equal(tree.depth, 0);
 	test.equal(tree.name, 'littleTree');
 	test.equal(tree.leaves[0], 'base.css');
 	test.equal(tree.childs.length, 2);
 
 	var faq = tree.childs[0];
 	test.equal(faq.name, 'faq');
-	test.equal(faq.depth, 1);
 	test.equal(faq.childs.length, 0);
 	test.equal(faq.leaves.length, 1);
 	test.equal(faq.leaves[0], 'faq.css');
 
 	var home = tree.childs[1];
 	test.equal(home.name, 'home');
-	test.equal(home.depth, 1);
 	test.equal(home.childs.length, 0);
 	test.equal(home.leaves.length, 2);
 	test.equal(home.leaves[0], 'home.css');
