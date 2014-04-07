@@ -95,7 +95,7 @@ grunt.initConfig({
   csstree: {
     lessTree: {
       options: {
-        extension: '.less'
+        ext: '.less'
       },
       src: 'styles'
     }

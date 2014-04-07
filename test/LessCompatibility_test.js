@@ -30,7 +30,7 @@ exports.testRootNotDirectory = function(test) {
 	// Generating the tree, with the use of the .less extension, which will allow the less
 	// parser to process those files.
 	csstree.generate(csstree.model('./test/lessTree'), {
-		extension: '.less'
+		ext: '.less'
 	});
 
 	var content = readFile('uglyPage/branch.gen.less');
