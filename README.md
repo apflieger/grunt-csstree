@@ -144,4 +144,4 @@ Encoding of generated files
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. We care about clean git history as well.
 
 ## Release History
-_(Nothing yet)_
+* 2014-04-07 v0.1.0 First version of Csstree
