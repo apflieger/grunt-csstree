@@ -1,7 +1,7 @@
 {
   "name": "grunt-csstree",
   "description": "Manage dependencies between your CSS files.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/apflieger/grunt-csstree",
   "author": {
     "name": "Arnaud Pflieger",
