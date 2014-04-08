@@ -75,7 +75,6 @@ grunt.initConfig({
     minifyBranches: {
       expand: true,
       src: ['css/**/branch.gen.css'],
-      dest: 'css/',
       ext: '.min.css',
       extDot: 'last'
     }
