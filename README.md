@@ -56,7 +56,7 @@ You get it, `css/acticles/branch.gen.css` would import `menus.css`, `reset.css` 
 
 `css/acticles/edit/branch.gen.css` would import `menus.css`, `reset.css`, `templates.css` and `edit.css`.
 
-> This is a very convenient way to organise CSS. Note that the order of imports matters, CSS overriding becomes much more clear because only subdirectories can override.
+> This is a very convenient way to organise CSS. Note that the order of imports matters, CSS overriding becomes much clearer because only subdirectories can override.
 
 ## Usage
 
