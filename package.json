@@ -37,6 +37,15 @@
     "grunt": "~0.4.2"
   },
   "keywords": [
-    "gruntplugin", "css", "csstree", "import", "less", "preprocessor"
-  ]
+    "gruntplugin",
+    "css",
+    "csstree",
+    "import",
+    "less",
+    "preprocessor"
+  ],
+  "dependencies": {
+    "lodash": "^2.4.1",
+    "minimatch": "^0.2.14"
+  }
 }
