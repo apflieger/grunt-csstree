@@ -1,7 +1,7 @@
 {
   "name": "grunt-csstree",
   "description": "Manage dependencies between your CSS files.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "homepage": "https://github.com/apflieger/grunt-csstree",
   "author": {
     "name": "Arnaud Pflieger",
@@ -37,6 +37,6 @@
     "grunt": "~0.4.2"
   },
   "keywords": [
-    "gruntplugin", "css", "csstree", "import", "less", "preprocessor"
+    "gruntplugin", "css", "import", "less", "preprocessor", "dependencies"
   ]
 }
